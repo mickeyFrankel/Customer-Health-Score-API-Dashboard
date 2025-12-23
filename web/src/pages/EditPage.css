@@ -1,0 +1,50 @@
+/* EditPage.css */
+
+.edit-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.edit-page__container {
+  width: 100%;
+}
+
+.edit-page__loading,
+.edit-page__error {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.edit-page__loading p,
+.edit-page__error p {
+  margin: 1rem 0;
+  color: #6b7280;
+}
+
+.edit-page__error-banner {
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.edit-page__error-banner .error-message {
+  margin: 0;
+  flex: 1;
+}
+
+@media (max-width: 640px) {
+  .edit-page__error-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .edit-page__error-banner button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,54 @@
+﻿.health-overview {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+  color: #1f2933;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  max-width: 720px;
+  margin: 2rem auto;
+}
+
+.health-overview--ok {
+  border: 2px solid #16a34a;
+}
+
+.health-overview--degraded {
+  border: 2px solid #f59e0b;
+}
+
+.health-overview header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.health-overview__status {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+}
+
+.health-overview__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.health-overview__grid div {
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(15, 23, 42, 0.03);
+}
+
+.health-overview__grid dt {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.health-overview__grid dd {
+  margin: 0.25rem 0 0;
+  font-size: 1.125rem;
+}

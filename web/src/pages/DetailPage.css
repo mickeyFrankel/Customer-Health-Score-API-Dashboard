@@ -1,0 +1,16 @@
+/* DetailPage.css */
+
+.detail-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.detail-page__error {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.detail-page__error p {
+  margin: 1rem 0;
+  color: #6b7280;
+}

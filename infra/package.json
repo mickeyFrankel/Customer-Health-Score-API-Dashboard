@@ -1,0 +1,14 @@
+﻿{
+  "name": "@customer-health/infra",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "compose:up": "docker compose -f infra/docker-compose.yml up --build",
+    "compose:up:detached": "docker compose -f infra/docker-compose.yml up --build -d",
+    "compose:down": "docker compose -f infra/docker-compose.yml down",
+    "compose:logs": "docker compose -f infra/docker-compose.yml logs -f"
+  }
+}

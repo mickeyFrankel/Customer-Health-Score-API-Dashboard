@@ -1,0 +1,38 @@
+/* CreatePage.css */
+
+.create-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.create-page__container {
+  width: 100%;
+}
+
+.create-page__error {
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.create-page__error .error-message {
+  margin: 0;
+  flex: 1;
+}
+
+@media (max-width: 640px) {
+  .create-page__error {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .create-page__error button {
+    width: 100%;
+  }
+}

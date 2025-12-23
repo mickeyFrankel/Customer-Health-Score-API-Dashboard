@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#f3f4f6" />
+  <rect x="40" y="40" width="560" height="280" rx="12" fill="#ffffff" stroke="#9ca3af" stroke-width="3" stroke-dasharray="12 8" />
+  <text x="320" y="180" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#4b5563">
+    System diagram placeholder
+  </text>
+  <text x="320" y="210" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#6b7280">
+    Replace with architecture diagram
+  </text>
+</svg>
