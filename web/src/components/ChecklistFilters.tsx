@@ -58,9 +58,7 @@ export function ChecklistFilters({ filters, onChange }: ChecklistFiltersProps) {
           <select
             id="sort-by"
             value={filters.sortBy || 'createdAt'}
-            onChange={(e) =>
-              handleSortChange(e.target.value as 'createdAt' | 'updatedAt' | 'score')
-            }
+            onChange={e => handleSortChange(e.target.value as 'createdAt' | 'updatedAt' | 'score')}
           >
             <option value="createdAt">Created Date</option>
             <option value="updatedAt">Updated Date</option>
@@ -69,7 +67,7 @@ export function ChecklistFilters({ filters, onChange }: ChecklistFiltersProps) {
 
           <select
             value={filters.sortOrder || 'desc'}
-            onChange={(e) => handleSortOrderChange(e.target.value as 'asc' | 'desc')}
+            onChange={e => handleSortOrderChange(e.target.value as 'asc' | 'desc')}
             aria-label="Sort order"
           >
             <option value="desc">↓ Descending</option>
@@ -88,7 +86,7 @@ export function ChecklistFilters({ filters, onChange }: ChecklistFiltersProps) {
                 type="text"
                 placeholder="Filter by customer ID"
                 value={customerId}
-                onChange={(e) => setCustomerId(e.target.value)}
+                onChange={e => setCustomerId(e.target.value)}
                 className="form-input"
               />
             </div>
@@ -104,7 +102,7 @@ export function ChecklistFilters({ filters, onChange }: ChecklistFiltersProps) {
                 max="100"
                 placeholder="0"
                 value={minScore}
-                onChange={(e) => setMinScore(e.target.value)}
+                onChange={e => setMinScore(e.target.value)}
                 className="form-input"
               />
             </div>
@@ -118,7 +116,7 @@ export function ChecklistFilters({ filters, onChange }: ChecklistFiltersProps) {
                 max="100"
                 placeholder="100"
                 value={maxScore}
-                onChange={(e) => setMaxScore(e.target.value)}
+                onChange={e => setMaxScore(e.target.value)}
                 className="form-input"
               />
             </div>

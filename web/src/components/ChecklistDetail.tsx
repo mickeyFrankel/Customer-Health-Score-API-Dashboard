@@ -11,12 +11,7 @@ interface ChecklistDetailProps {
   onClose?: () => void;
 }
 
-export function ChecklistDetail({
-  checklistId,
-  onEdit,
-  onDelete,
-  onClose,
-}: ChecklistDetailProps) {
+export function ChecklistDetail({ checklistId, onEdit, onDelete, onClose }: ChecklistDetailProps) {
   const [checklist, setChecklist] = useState<Checklist | null>(null);
   const [stats, setStats] = useState<CustomerStats | null>(null);
   const [loading, setLoading] = useState(true);
@@ -24,6 +19,7 @@ export function ChecklistDetail({
 
   useEffect(() => {
     fetchChecklistAndStats();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checklistId]);
 
   async function fetchChecklistAndStats() {
@@ -32,13 +28,13 @@ export function ChecklistDetail({
       setError(null);
 
       // Fetch checklist and customer stats in parallel
-      const [checklistData, statsData] = await Promise.all([
+      const [checklistData] = await Promise.all([
         checklistApi.getById(checklistId),
         checklistApi.getCustomerStats(checklistId).catch(() => null), // Stats might fail if customerId is invalid
       ]);
 
       setChecklist(checklistData);
-      
+
       // Fetch stats using the actual customerId from the checklist
       if (checklistData.customerId) {
         try {
@@ -187,11 +183,7 @@ export function ChecklistDetail({
                         style={{
                           width: `${item.score}%`,
                           backgroundColor:
-                            item.score >= 80
-                              ? '#10b981'
-                              : item.score >= 60
-                              ? '#f59e0b'
-                              : '#ef4444',
+                            item.score >= 80 ? '#10b981' : item.score >= 60 ? '#f59e0b' : '#ef4444',
                         }}
                       />
                     </div>

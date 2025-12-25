@@ -9,7 +9,12 @@ interface ChecklistFormProps {
   loading?: boolean;
 }
 
-export function ChecklistForm({ checklist, onSubmit, onCancel, loading = false }: ChecklistFormProps) {
+export function ChecklistForm({
+  checklist,
+  onSubmit,
+  onCancel,
+  loading = false,
+}: ChecklistFormProps) {
   const isEditMode = !!checklist;
 
   const [customerId, setCustomerId] = useState(checklist?.customerId || '');
@@ -89,7 +94,7 @@ export function ChecklistForm({ checklist, onSubmit, onCancel, loading = false }
           id="customer-id"
           type="text"
           value={customerId}
-          onChange={(e) => setCustomerId(e.target.value)}
+          onChange={e => setCustomerId(e.target.value)}
           className={`form-input ${errors.customerId ? 'form-input--error' : ''}`}
           placeholder="e.g., customer-123"
           disabled={loading}
@@ -109,7 +114,7 @@ export function ChecklistForm({ checklist, onSubmit, onCancel, loading = false }
             min="0"
             max="100"
             value={score}
-            onChange={(e) => setScore(e.target.value)}
+            onChange={e => setScore(e.target.value)}
             className={`form-input ${errors.score ? 'form-input--error' : ''}`}
             placeholder="85"
             disabled={loading}
@@ -125,8 +130,8 @@ export function ChecklistForm({ checklist, onSubmit, onCancel, loading = false }
                     parseInt(score) >= 80
                       ? '#10b981'
                       : parseInt(score) >= 60
-                      ? '#f59e0b'
-                      : '#ef4444',
+                        ? '#f59e0b'
+                        : '#ef4444',
                 }}
               />
             </div>
@@ -142,7 +147,7 @@ export function ChecklistForm({ checklist, onSubmit, onCancel, loading = false }
         <textarea
           id="notes"
           value={notes}
-          onChange={(e) => setNotes(e.target.value)}
+          onChange={e => setNotes(e.target.value)}
           className={`form-textarea ${errors.notes ? 'form-input--error' : ''}`}
           placeholder="Add any additional notes about the customer's health..."
           rows={4}
@@ -167,7 +172,12 @@ export function ChecklistForm({ checklist, onSubmit, onCancel, loading = false }
           )}
         </button>
         {onCancel && (
-          <button type="button" onClick={onCancel} className="btn btn--secondary" disabled={loading}>
+          <button
+            type="button"
+            onClick={onCancel}
+            className="btn btn--secondary"
+            disabled={loading}
+          >
             Cancel
           </button>
         )}

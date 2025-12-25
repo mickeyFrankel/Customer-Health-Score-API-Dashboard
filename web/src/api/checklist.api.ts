@@ -20,10 +20,7 @@ export class ChecklistApi {
    * Create a new checklist
    */
   async create(data: CreateChecklistInput): Promise<Checklist> {
-    const response = await apiClient.post<ApiResponse<Checklist>>(
-      this.basePath,
-      data,
-    );
+    const response = await apiClient.post<ApiResponse<Checklist>>(this.basePath, data);
     return response.data;
   }
 
@@ -33,7 +30,7 @@ export class ChecklistApi {
   async list(params?: ListChecklistsParams): Promise<PaginatedResponse<Checklist>> {
     return apiClient.get<PaginatedResponse<Checklist>>(
       this.basePath,
-      params as Record<string, string | number | boolean | undefined>,
+      params as Record<string, string | number | boolean | undefined>
     );
   }
 
@@ -41,9 +38,7 @@ export class ChecklistApi {
    * Get a single checklist by ID
    */
   async getById(id: string): Promise<Checklist> {
-    const response = await apiClient.get<ApiResponse<Checklist>>(
-      `${this.basePath}/${id}`,
-    );
+    const response = await apiClient.get<ApiResponse<Checklist>>(`${this.basePath}/${id}`);
     return response.data;
   }
 
@@ -51,10 +46,7 @@ export class ChecklistApi {
    * Update an existing checklist
    */
   async update(id: string, data: UpdateChecklistInput): Promise<Checklist> {
-    const response = await apiClient.put<ApiResponse<Checklist>>(
-      `${this.basePath}/${id}`,
-      data,
-    );
+    const response = await apiClient.put<ApiResponse<Checklist>>(`${this.basePath}/${id}`, data);
     return response.data;
   }
 
@@ -62,9 +54,7 @@ export class ChecklistApi {
    * Delete a checklist
    */
   async delete(id: string): Promise<Checklist> {
-    const response = await apiClient.delete<ApiResponse<Checklist>>(
-      `${this.basePath}/${id}`,
-    );
+    const response = await apiClient.delete<ApiResponse<Checklist>>(`${this.basePath}/${id}`);
     return response.data;
   }
 
@@ -73,7 +63,7 @@ export class ChecklistApi {
    */
   async getCustomerStats(customerId: string): Promise<CustomerStats> {
     const response = await apiClient.get<ApiResponse<CustomerStats>>(
-      `${this.basePath}/customer/${customerId}/stats`,
+      `${this.basePath}/customer/${customerId}/stats`
     );
     return response.data;
   }

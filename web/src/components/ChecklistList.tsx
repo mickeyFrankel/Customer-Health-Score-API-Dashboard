@@ -23,6 +23,7 @@ export function ChecklistList() {
 
   useEffect(() => {
     fetchChecklists();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   async function fetchChecklists() {
@@ -47,7 +48,7 @@ export function ChecklistList() {
   }
 
   function handleFilterChange(newFilters: Partial<ListChecklistsParams>) {
-    setFilters((prev) => ({
+    setFilters(prev => ({
       ...prev,
       ...newFilters,
       offset: 0, // Reset to first page when filters change
@@ -56,7 +57,7 @@ export function ChecklistList() {
 
   function handleNextPage() {
     if (pagination.hasMore) {
-      setFilters((prev) => ({
+      setFilters(prev => ({
         ...prev,
         offset: (prev.offset || 0) + (prev.limit || 10),
       }));
@@ -64,7 +65,7 @@ export function ChecklistList() {
   }
 
   function handlePreviousPage() {
-    setFilters((prev) => ({
+    setFilters(prev => ({
       ...prev,
       offset: Math.max(0, (prev.offset || 0) - (prev.limit || 10)),
     }));
@@ -136,12 +137,8 @@ export function ChecklistList() {
       ) : (
         <>
           <div className="checklist-list__grid">
-            {checklists.map((checklist) => (
-              <ChecklistCard
-                key={checklist.id}
-                checklist={checklist}
-                onDelete={handleDelete}
-              />
+            {checklists.map(checklist => (
+              <ChecklistCard key={checklist.id} checklist={checklist} onDelete={handleDelete} />
             ))}
           </div>
 

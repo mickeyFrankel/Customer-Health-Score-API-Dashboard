@@ -8,7 +8,7 @@ export class ApiClientError extends Error {
     message: string,
     public status: number,
     public code?: string,
-    public details?: Array<{ path: string; message: string }>,
+    public details?: Array<{ path: string; message: string }>
   ) {
     super(message);
     this.name = 'ApiClientError';
@@ -22,7 +22,7 @@ function buildQueryString(params?: Record<string, string | number | boolean | un
   if (!params) return '';
 
   const searchParams = new URLSearchParams();
-  
+
   Object.entries(params).forEach(([key, value]) => {
     if (value !== undefined && value !== null) {
       searchParams.append(key, String(value));
@@ -46,12 +46,9 @@ export class ApiClient {
   /**
    * Make a typed HTTP request
    */
-  async request<T>(
-    endpoint: string,
-    options: RequestOptions = {},
-  ): Promise<T> {
+  async request<T>(endpoint: string, options: RequestOptions = {}): Promise<T> {
     const { method = 'GET', body, params } = options;
-    
+
     const url = `${this.baseUrl}${endpoint}${buildQueryString(params)}`;
 
     const headers: HeadersInit = {
@@ -69,15 +66,12 @@ export class ApiClient {
 
     try {
       const response = await fetch(url, config);
-      
+
       // Handle non-JSON responses
       const contentType = response.headers.get('content-type');
       if (!contentType?.includes('application/json')) {
         if (!response.ok) {
-          throw new ApiClientError(
-            'Request failed',
-            response.status,
-          );
+          throw new ApiClientError('Request failed', response.status);
         }
         // For successful non-JSON responses, return empty object
         return {} as T;
@@ -93,7 +87,7 @@ export class ApiClient {
           error.message || 'Request failed',
           response.status,
           error.error,
-          error.details,
+          error.details
         );
       }
 
@@ -109,7 +103,7 @@ export class ApiClient {
         throw new ApiClientError(
           'Network error - please check your connection',
           0,
-          'NETWORK_ERROR',
+          'NETWORK_ERROR'
         );
       }
 
@@ -117,7 +111,7 @@ export class ApiClient {
       throw new ApiClientError(
         error instanceof Error ? error.message : 'An unexpected error occurred',
         500,
-        'UNKNOWN_ERROR',
+        'UNKNOWN_ERROR'
       );
     }
   }
@@ -125,7 +119,10 @@ export class ApiClient {
   /**
    * GET request
    */
-  get<T>(endpoint: string, params?: Record<string, string | number | boolean | undefined>): Promise<T> {
+  get<T>(
+    endpoint: string,
+    params?: Record<string, string | number | boolean | undefined>
+  ): Promise<T> {
     return this.request<T>(endpoint, { method: 'GET', params });
   }
 

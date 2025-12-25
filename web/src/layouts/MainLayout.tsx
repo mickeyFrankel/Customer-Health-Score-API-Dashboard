@@ -34,9 +34,7 @@ export function MainLayout() {
       </main>
 
       <footer className="main-layout__footer">
-        <p>
-          Customer Health Platform &copy; {new Date().getFullYear()}
-        </p>
+        <p>Customer Health Platform &copy; {new Date().getFullYear()}</p>
       </footer>
     </div>
   );
